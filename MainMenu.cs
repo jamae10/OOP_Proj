@@ -24,31 +24,35 @@ namespace OOP_Proj
                 switch(fchoiceMainMenu)
                 {
                     case 1:
-                        opt1.displaySimpleMenu();
-                        fchoiceSimple = opt1.getOptSimple();
-
-                        switch (fchoiceSimple)
+                        Boolean s = true;
+                        while (s)
                         {
-                            case 1:
+                            opt1.displaySimpleMenu();
+                            fchoiceSimple = opt1.getOptSimple();
+                            if (fchoiceSimple == 1)
+                            {
                                 opt1.SimpleOpt1();
-                                break;
-
-                            case 2:
+                            }
+                            else if (fchoiceSimple == 2)
+                            {
                                 opt1.SimpleOpt2();
-                                break;
-
-                            case 3:
+                            }
+                            else if (fchoiceSimple == 3)
+                            {
                                 opt1.SimpleOpt3();
-                                break;
-
-                            case 4:
+                            }
+                            else if (fchoiceSimple == 4)
+                            {
                                 opt1.SimpleOpt4();
-                                break;
-
-                            case 5:
+                            }
+                            else if (fchoiceSimple == 5)
+                            {
                                 disp.displayMainMenu();
                                 break;
+                            }
+
                         }
+                        
                         break;
 
                     case 2:

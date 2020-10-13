@@ -8,10 +8,13 @@ namespace OOP_Proj
     {
         public int choiceSimple;
         public int num1, num2, sum; //option 1
+        public double r, areaOfCircle, area; // option 2 
+        public double n1, n2, average, ave;
+        public string fname, lname;
         public void displaySimpleMenu()
         {
-            Console.WriteLine("================================");
-            Console.WriteLine($"{" ",-12}{"Simple Program Menu",-10}");
+            Console.WriteLine("\n================================");
+            Console.WriteLine($"{" ",-7}{"Simple Program Menu",-10}");
             Console.WriteLine("================================");
             Console.WriteLine("[1] Adding 2 Input Numbers ");
             Console.WriteLine("[2] Area of the Circle using an Input Number");
@@ -43,28 +46,49 @@ namespace OOP_Proj
         
         public  void SimpleOpt1()
         {
+            Console.WriteLine("\n*****Adding 2 Input Numbers*****");
             Console.WriteLine("Enter 1st Number: ");
             num1 = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Enter 2nd Number: ");
             num2 = Convert.ToInt32(Console.ReadLine());
 
             sum = num1 + num2;
-            Console.WriteLine("{0} + {1} = {3}",num1,num2,sum);
+            Console.WriteLine($"\n{num1} + {num2} = {sum}");
         }
 
-        public double SimpleOpt2()
+        public void SimpleOpt2()
         {
+            Console.WriteLine("\n*****Area of Circle*****");
+            Console.WriteLine("Enter Number of Radius: ");
+            r = Convert.ToDouble(Console.ReadLine());
+            areaOfCircle = (Math.PI * r) * 2;
+            area = Math.Round((Double)areaOfCircle, 2);
 
+            Console.WriteLine($"The Area of Circle is {area} ");
         }
 
-        public double SimpleOpt3()
+        public void SimpleOpt3()
         {
+            Console.WriteLine("\n*****Average of 2 Numbers*****");
+            Console.WriteLine("Enter 1st Number: ");
+            n1 = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Enter 2nd Number: ");
+            n2 = Convert.ToDouble(Console.ReadLine());
 
+            average = (n1 + n2) / 2;
+            ave = Math.Round((Double)average, 2);
+            Console.WriteLine($"The Average is {ave} ");
         }
 
-        public string SimpleOpt4()
+        public void SimpleOpt4()
         {
+            Console.WriteLine("\n*****First Name and Last Name*****");
+            Console.WriteLine("Enter First Name: ");
+            fname = Console.ReadLine();
+            Console.WriteLine("Enter Last Name: ");
+            lname = Console.ReadLine();
 
+            Console.WriteLine($"The Full Name is {fname} {lname}");
         }
 
     }
