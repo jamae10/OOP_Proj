@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace OOP_Proj
 {
     class MainMenu
     {
-        public static int choice, fchoice;
+        public static int choiceMainMenu, fchoiceMainMenu, fchoiceSimple, fchoiceSelection,fchoiceIteration, fchoiceArray;
         static void Main(string[] args)
         {
             Boolean loop = true;
@@ -12,20 +13,69 @@ namespace OOP_Proj
             {
                 //creating objects for each class
                 MainMenu disp = new MainMenu();
-                ArithMetic opt1 = new ArithMetic();
-                StringProb opt2 = new StringProb();
-                UnitConv opt3 = new UnitConv();
-                SortingArr opt4 = new SortingArr();
-                MathClass opt5 = new MathClass();
-
+                SimpleProg opt1 = new SimpleProg();
+                SelectionProg opt2 = new SelectionProg();
+                IterationProg opt3 = new IterationProg();
+                ArrayProg opt4 = new ArrayProg();
+            
                 disp.displayMainMenu();
-                fchoice = disp.getMainMenu();
+                fchoiceMainMenu = disp.getMainMenu();
 
+                switch(fchoiceMainMenu)
+                {
+                    case 1:
+                        opt1.displaySimpleMenu();
+                        fchoiceSimple = opt1.getOptSimple();
+
+                        switch (fchoiceSimple)
+                        {
+                            case 1:
+                                opt1.SimpleOpt1();
+                                break;
+
+                            case 2:
+                                opt1.SimpleOpt2();
+                                break;
+
+                            case 3:
+                                opt1.SimpleOpt3();
+                                break;
+
+                            case 4:
+                                opt1.SimpleOpt4();
+                                break;
+
+                            case 5:
+                                disp.displayMainMenu();
+                                break;
+                        }
+                        break;
+
+                    case 2:
+                        opt2.displaySelectionMenu();
+                        fchoiceSelection = opt2.getOptSelection();
+                        break;
+
+                    case 3:
+                        opt3.displayIterationMenu();
+                        fchoiceIteration = opt3.getOptIteration();
+                        break;
+
+                    case 4:
+                        opt4.displayArrayMenu();
+                        fchoiceArray = opt4.getOptArray();
+                        break;
+
+                    case 5:
+                        Environment.Exit(0);
+                        break;
+                }
 
                 break;
             } while (loop);
         }
 
+        //display main menu
         public void displayMainMenu()
         {
             Console.WriteLine("================================");
@@ -48,16 +98,16 @@ namespace OOP_Proj
             while (cc)
             {
                 Console.WriteLine("Enter Number of Choice: ");
-                choice = Convert.ToInt32(Console.ReadLine());
+                choiceMainMenu = Convert.ToInt32(Console.ReadLine());
 
-                if (choice <= 0 || choice > 5)
+                if (choiceMainMenu <= 0 || choiceMainMenu > 5)
                 {
                     Console.WriteLine("Invalid Choice of Number. Please Try Again.\n");
                 }
 
                 else { break; }
             }
-            return choice;
+            return choiceMainMenu;
         }
 
     }

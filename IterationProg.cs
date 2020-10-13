@@ -6,10 +6,11 @@ namespace OOP_Proj
 {
     class IterationProg
     {
+        public int choiceIteration;
         public void displayIterationMenu()
         {
             Console.WriteLine("================================");
-            Console.WriteLine($"{" ",-12}{"Main Menu",-10}");
+            Console.WriteLine($"{" ",-12}{"Iteration Program Menu",-10}");
             Console.WriteLine("================================");
             Console.WriteLine("[1] Display Numbers from 1 to 10 ");
             Console.WriteLine("[2] Display All Even Numbers from 0 to 50");
@@ -18,6 +19,25 @@ namespace OOP_Proj
             Console.WriteLine("[5] Back to Main Menu");
             Console.WriteLine("================================");
 
+        }
+
+        public int getOptIteration()
+        {
+            Boolean cc = true;
+
+            while (cc)
+            {
+                Console.WriteLine("Enter Number of Choice: ");
+                choiceIteration = Convert.ToInt32(Console.ReadLine());
+
+                if (choiceIteration <= 0 || choiceIteration > 5)
+                {
+                    Console.WriteLine("Invalid Choice of Number. Please Try Again.\n");
+                }
+
+                else { break; }
+            }
+            return choiceIteration;
         }
     }
 }
