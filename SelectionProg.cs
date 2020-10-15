@@ -10,7 +10,7 @@ namespace OOP_Proj
         public void displaySelectionMenu()
         {
             Console.WriteLine("================================");
-            Console.WriteLine($"{" ",-12}{"Selection ProgramS Menu",-10}");
+            Console.WriteLine($"{" ",-7}{"Selection Program Menu",-10}");
             Console.WriteLine("================================");
             Console.WriteLine("[1] Odd or Even Number ");
             Console.WriteLine("[2] Leap Year or Not Leap Year");
@@ -28,7 +28,13 @@ namespace OOP_Proj
             while (cc)
             {
                 Console.WriteLine("Enter Number of Choice: ");
-                choiceSelection = Convert.ToInt32(Console.ReadLine());
+
+                string input = Console.ReadLine();
+                if (!int.TryParse(input, out choiceSelection))
+                {
+                    Console.WriteLine("Invalid Input. Please Try Again.\n");
+                    continue;
+                }
 
                 if (choiceSelection <= 0 || choiceSelection > 5)
                 {

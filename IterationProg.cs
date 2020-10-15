@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.CompilerServices;
+using System;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Text;
 
 namespace OOP_Proj
@@ -10,7 +12,7 @@ namespace OOP_Proj
         public void displayIterationMenu()
         {
             Console.WriteLine("================================");
-            Console.WriteLine($"{" ",-12}{"Iteration Program Menu",-10}");
+            Console.WriteLine($"{" ",-7}{"Iteration Program Menu",-10}");
             Console.WriteLine("================================");
             Console.WriteLine("[1] Display Numbers from 1 to 10 ");
             Console.WriteLine("[2] Display All Even Numbers from 0 to 50");
@@ -28,14 +30,21 @@ namespace OOP_Proj
             while (cc)
             {
                 Console.WriteLine("Enter Number of Choice: ");
-                choiceIteration = Convert.ToInt32(Console.ReadLine());
-
+                string input = Console.ReadLine();
+                if (!int.TryParse(input, out choiceIteration))
+                {
+                    Console.WriteLine("Invalid Input. Please Try Again.\n");
+                    continue;
+                }
+               
                 if (choiceIteration <= 0 || choiceIteration > 5)
                 {
                     Console.WriteLine("Invalid Choice of Number. Please Try Again.\n");
                 }
 
                 else { break; }
+
+                
             }
             return choiceIteration;
         }

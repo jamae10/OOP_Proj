@@ -9,8 +9,10 @@ namespace OOP_Proj
         public int choiceSimple;
         public int num1, num2, sum; //option 1
         public double r, areaOfCircle, area; // option 2 
-        public double n1, n2, average, ave;
-        public string fname, lname;
+        public double n1, n2, average, ave; //option 3
+        public string fname, lname; //option 4
+
+        //to display the Simple Sub Menu
         public void displaySimpleMenu()
         {
             Console.WriteLine("\n================================");
@@ -25,6 +27,7 @@ namespace OOP_Proj
 
         }
 
+        //returns user's choice in Simple Sub Menu
         public int getOptSimple()
         {
             Boolean cc = true;
@@ -32,8 +35,13 @@ namespace OOP_Proj
             while (cc)
             {
                 Console.WriteLine("Enter Number of Choice: ");
-                choiceSimple = Convert.ToInt32(Console.ReadLine());
-
+                string input = Console.ReadLine();
+                if (!int.TryParse(input, out choiceSimple))
+                {
+                    Console.WriteLine("Invalid Input. Please Try Again.\n");
+                    continue;
+                }
+               
                 if (choiceSimple <= 0 || choiceSimple > 5)
                 {
                     Console.WriteLine("Invalid Choice of Number. Please Try Again.\n");
@@ -43,8 +51,9 @@ namespace OOP_Proj
             }
             return choiceSimple;
         }
-        
-        public  void SimpleOpt1()
+
+        //option 1 - Adding 2 Input Numbers
+        public void SimpleOpt1()
         {
             Console.WriteLine("\n*****Adding 2 Input Numbers*****");
             Console.WriteLine("Enter 1st Number: ");
@@ -56,6 +65,7 @@ namespace OOP_Proj
             Console.WriteLine($"\n{num1} + {num2} = {sum}");
         }
 
+        //option 2 - Area of Circle
         public void SimpleOpt2()
         {
             Console.WriteLine("\n*****Area of Circle*****");
@@ -67,6 +77,7 @@ namespace OOP_Proj
             Console.WriteLine($"The Area of Circle is {area} ");
         }
 
+        //option 3 - Average of 2 Numbers
         public void SimpleOpt3()
         {
             Console.WriteLine("\n*****Average of 2 Numbers*****");
@@ -80,6 +91,7 @@ namespace OOP_Proj
             Console.WriteLine($"The Average is {ave} ");
         }
 
+        //option 4 - First Name and Last Name
         public void SimpleOpt4()
         {
             Console.WriteLine("\n*****First Name and Last Name*****");

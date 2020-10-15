@@ -6,6 +6,7 @@ namespace OOP_Proj
     class MainMenu
     {
         public static int choiceMainMenu, fchoiceMainMenu, fchoiceSimple, fchoiceSelection,fchoiceIteration;
+        public static string input;
         static void Main(string[] args)
         {
             Boolean loop = true;
@@ -101,7 +102,14 @@ namespace OOP_Proj
             while (cc)
             {
                 Console.WriteLine("Enter Number of Choice: ");
-                choiceMainMenu = Convert.ToInt32(Console.ReadLine());
+                input = Console.ReadLine();
+                
+                if (!int.TryParse(input, out choiceMainMenu))
+                {
+                    
+                    Console.WriteLine("Invalid Input. Please Try Again.\n");
+                    continue;
+                }
 
                 if (choiceMainMenu <= 0 || choiceMainMenu > 5)
                 {
