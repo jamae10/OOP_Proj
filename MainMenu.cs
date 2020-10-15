@@ -5,7 +5,7 @@ namespace OOP_Proj
 {
     class MainMenu
     {
-        public static int choiceMainMenu, fchoiceMainMenu, fchoiceSimple, fchoiceSelection,fchoiceIteration, fchoiceArray;
+        public static int choiceMainMenu, fchoiceMainMenu, fchoiceSimple, fchoiceSelection,fchoiceIteration;
         static void Main(string[] args)
         {
             Boolean loop = true;
@@ -46,7 +46,6 @@ namespace OOP_Proj
                             }
                             else if (fchoiceSimple == 5)
                             {
-                                disp.displayMainMenu();
                                 break;
                             }
 
@@ -67,6 +66,12 @@ namespace OOP_Proj
                     case 4:
                         Environment.Exit(0);
                         break;
+                }
+
+                //to loop to Main menu when sub menu input is 5 (exit)
+                if (fchoiceSimple == 5 )
+                {
+                    continue;
                 }
 
                 break;
