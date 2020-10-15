@@ -108,7 +108,7 @@ namespace OOP_Proj
             Console.WriteLine("[1] Simple Program ");
             Console.WriteLine("[2] Selection Program");
             Console.WriteLine("[3] Iteration Program");
-            Console.WriteLine("[5] Exit");
+            Console.WriteLine("[4] Exit");
             Console.WriteLine("================================");
 
         }
@@ -129,7 +129,7 @@ namespace OOP_Proj
                     continue;
                 }
 
-                if (choiceMainMenu <= 0 || choiceMainMenu > 5)
+                if (choiceMainMenu <= 0 || choiceMainMenu > 4)
                 {
                     Console.WriteLine("!!Invalid Choice of Number. Please Try Again.!!\n");
                 }
