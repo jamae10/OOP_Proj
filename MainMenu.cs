@@ -55,13 +55,33 @@ namespace OOP_Proj
                         break;
 
                     case 2:
-                        opt2.displaySelectionMenu();
-                        fchoiceSelection = opt2.getOptSelection();
+                        Boolean t = true;
+                        while (t)
+                        {
+                            opt2.displaySelectionMenu();
+                            fchoiceSelection = opt2.getOptSelection();
+
+                            if (fchoiceSelection == 5)
+                            {
+                                break;
+                            }
+                        }
+                        
                         break;
 
                     case 3:
-                        opt3.displayIterationMenu();
-                        fchoiceIteration = opt3.getOptIteration();
+                        Boolean y = true;
+                        while (y)
+                        {
+                            opt3.displayIterationMenu();
+                            fchoiceIteration = opt3.getOptIteration();
+
+                            if (fchoiceIteration == 5)
+                            {
+                                break;
+                            }
+                        }
+                        
                         break;
                     
                     case 4:
@@ -70,7 +90,7 @@ namespace OOP_Proj
                 }
 
                 //to loop to Main menu when sub menu input is 5 (exit)
-                if (fchoiceSimple == 5 )
+                if (fchoiceSimple == 5 || fchoiceSelection == 5 || fchoiceIteration == 5)
                 {
                     continue;
                 }
@@ -82,13 +102,12 @@ namespace OOP_Proj
         //display main menu
         public void displayMainMenu()
         {
-            Console.WriteLine("================================");
+            Console.WriteLine("\n================================");
             Console.WriteLine($"{" ",-12}{"Main Menu",-10}");
             Console.WriteLine("================================");
             Console.WriteLine("[1] Simple Program ");
             Console.WriteLine("[2] Selection Program");
             Console.WriteLine("[3] Iteration Program");
-            Console.WriteLine("[4] Array Program");
             Console.WriteLine("[5] Exit");
             Console.WriteLine("================================");
 
@@ -101,19 +120,18 @@ namespace OOP_Proj
 
             while (cc)
             {
-                Console.WriteLine("Enter Number of Choice: ");
+                Console.Write("Enter Number of Choice: \n>> ");
                 input = Console.ReadLine();
                 
                 if (!int.TryParse(input, out choiceMainMenu))
                 {
-                    
-                    Console.WriteLine("Invalid Input. Please Try Again.\n");
+                    Console.WriteLine("!!Invalid Input. Please Try Again.!!\n");
                     continue;
                 }
 
                 if (choiceMainMenu <= 0 || choiceMainMenu > 5)
                 {
-                    Console.WriteLine("Invalid Choice of Number. Please Try Again.\n");
+                    Console.WriteLine("!!Invalid Choice of Number. Please Try Again.!!\n");
                 }
 
                 else { break; }

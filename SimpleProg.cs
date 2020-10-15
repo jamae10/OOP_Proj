@@ -34,17 +34,17 @@ namespace OOP_Proj
 
             while (cc)
             {
-                Console.WriteLine("Enter Number of Choice: ");
+                Console.Write("Enter Number of Choice: \n>> ");
                 string input = Console.ReadLine();
                 if (!int.TryParse(input, out choiceSimple))
                 {
-                    Console.WriteLine("Invalid Input. Please Try Again.\n");
+                    Console.WriteLine("!!Invalid Input. Please Try Again.!!\n");
                     continue;
                 }
                
                 if (choiceSimple <= 0 || choiceSimple > 5)
                 {
-                    Console.WriteLine("Invalid Choice of Number. Please Try Again.\n");
+                    Console.WriteLine("!!Invalid Choice of Number. Please Try Again.!!\n");
                 }
 
                 else { break; }
