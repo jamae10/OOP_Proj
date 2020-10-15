@@ -16,7 +16,6 @@ namespace OOP_Proj
                 SimpleProg opt1 = new SimpleProg();
                 SelectionProg opt2 = new SelectionProg();
                 IterationProg opt3 = new IterationProg();
-                ArrayProg opt4 = new ArrayProg();
             
                 disp.displayMainMenu();
                 fchoiceMainMenu = disp.getMainMenu();
@@ -64,13 +63,8 @@ namespace OOP_Proj
                         opt3.displayIterationMenu();
                         fchoiceIteration = opt3.getOptIteration();
                         break;
-
+                    
                     case 4:
-                        opt4.displayArrayMenu();
-                        fchoiceArray = opt4.getOptArray();
-                        break;
-
-                    case 5:
                         Environment.Exit(0);
                         break;
                 }
