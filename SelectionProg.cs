@@ -11,7 +11,7 @@ namespace OOP_Proj
         //to display Selection Sub Menu
         public void displaySelectionMenu()
         {
-            Console.WriteLine("================================");
+            Console.WriteLine("\n================================");
             Console.WriteLine($"{" ",-5}{"Selection Program Menu",-10}");
             Console.WriteLine("================================");
             Console.WriteLine("[1] Odd or Even Number ");

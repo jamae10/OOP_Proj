@@ -76,7 +76,27 @@ namespace OOP_Proj
                             opt3.displayIterationMenu();
                             fchoiceIteration = opt3.getOptIteration();
 
-                            if (fchoiceIteration == 5)
+                            if (fchoiceIteration == 1)
+                            {
+                                opt3.IterationOpt1();
+                            }
+
+                            else if (fchoiceIteration == 2)
+                            {
+                                opt3.IterationOpt2();
+                            }
+
+                            else if (fchoiceIteration == 3)
+                            {
+                                opt3.IterationOpt3();
+                            }
+
+                            else if (fchoiceIteration == 4)
+                            {
+                                opt3.IterationOpt4();
+                            }
+
+                            else if (fchoiceIteration == 5)
                             {
                                 break;
                             }
