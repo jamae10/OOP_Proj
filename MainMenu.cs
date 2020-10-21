@@ -65,6 +65,22 @@ namespace OOP_Proj
                             {
                                 break;
                             }
+                            else if(fchoiceSelection == 1)
+                            {
+                                opt2.SelectionOpt1();
+                            }
+                            else if (fchoiceSelection == 2)
+                            {
+                                opt2.SelectionOpt2();
+                            }
+                            else if (fchoiceSelection == 3)
+                            {
+                                opt2.SelectionOpt3();
+                            }
+                            else if (fchoiceSelection == 4)
+                            {
+                                opt2.SelectionOpt4();
+                            }
                         }
                         
                         break;
