@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace OOP_Proj
 {
     class SelectionProg
     {
         public int choiceSelection;
+        public static string  ErrorMessage;
 
         //to display Selection Sub Menu
         public void displaySelectionMenu()
@@ -128,53 +130,74 @@ namespace OOP_Proj
         //option 4 - Display Password Program
         public void SelectionOpt4()
         {
+            
             Console.WriteLine("DISPLAY PASSWORD PROGRAM\n");
-            int minLength = 8;
-            int maxLength = 20;
+            //int minLength = 8;
+            //int maxLength = 20;
             Console.Write("Enter a password:  ");
             string pass = Console.ReadLine();
+             
+            if (string.IsNullOrWhiteSpace(pass))
+            {
+                Console.WriteLine("Invalid Password\n");
+               }
 
-            bool containsSpaces = pass.Contains(" ");
             Console.WriteLine();
             int score = 0;
 
-            if (pass.Length >= minLength && pass.Length <= maxLength)
+            var hasNumber = new Regex(@"[0-9]+");
+            var hasUpperChar = new Regex(@"[A-Z]+");
+            var hasMiniMaxChars = new Regex(@".{8,8}");
+            var hasLowerChar = new Regex(@"[a-z]+");
+            var hasSymbols = new Regex(@"[!@#$%^&*()_+=\[{\]};:<>|./?,-]");
+
+            if (!hasLowerChar.IsMatch(pass))
+            {
+                ErrorMessage = "Password should contain At least one lower case letter";
+            }
+            else if (hasLowerChar.IsMatch(pass))
             {
                 score++;
-                if (pass.Any(char.IsUpper))
-                {
-                    score++;
-                    if (pass.Any(char.IsLower))
-                    {
-                        score++;
-                        if (pass.Any(char.IsDigit))
-                        {
-                            score++;
-                            if (pass.Any(ch => !char.IsLetterOrDigit(ch)))
-                            {
-                                score++;
-                                if (!(containsSpaces))
-                                {
-                                    score++;
-                                }
-                                else
-                                    Console.WriteLine("Special character is not accepted.");
-                            }
-                            else
-                                Console.WriteLine("Special character is not accepted.");
-                        }
-                        else
-                            Console.WriteLine("There must be at least one(1) number.");
-                    }
-                    else
-                        Console.WriteLine("There must be at least one(1) lowercase & number.");
-                }
-                else
-                    Console.WriteLine("There must be at least one(1) uppercase & number.");
             }
-            else
+
+            if (!hasUpperChar.IsMatch(pass))
             {
-                Console.WriteLine("Minimum of 8. Maximum of 20.");
+                ErrorMessage = "Password should contain At least one upper case letter";
+                Console.WriteLine(ErrorMessage);
+            }
+            else if (hasUpperChar.IsMatch(pass))
+            {
+                score++;
+            }
+
+            if (!hasMiniMaxChars.IsMatch(pass))
+            {
+                ErrorMessage = "Password should not be less than or greater than 8 characters";
+                Console.WriteLine(ErrorMessage);
+            }
+            else if (hasMiniMaxChars.IsMatch(pass))
+            {
+                score++;
+            }
+
+            if (!hasNumber.IsMatch(pass))
+            {
+                ErrorMessage = "Password should contain At least one numeric value";
+                Console.WriteLine(ErrorMessage);
+            }
+            else if (hasNumber.IsMatch(pass))
+            {
+                score++;
+            }
+
+            if (!hasSymbols.IsMatch(pass))
+            {
+                ErrorMessage = "Password should contain At least one special case characters";
+                Console.WriteLine(ErrorMessage);
+            }
+            else if (hasSymbols.IsMatch(pass))
+            {
+                score++;
             }
 
             switch (score)
@@ -182,7 +205,7 @@ namespace OOP_Proj
                 case 5: case 4: Console.WriteLine("Password strength is strong."); break;
                 case 2: case 3: Console.WriteLine("Password strength is medium."); break;
                 case 1: Console.WriteLine("Password strength is weak."); break;
-                default: Console.WriteLine("ERROR!"); break;
+                //default: Console.WriteLine(ErrorMessage); break;
             }
         }
 
