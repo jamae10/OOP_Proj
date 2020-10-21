@@ -134,12 +134,6 @@ namespace OOP_Proj
             Console.Write("Enter a password:  ");
             string pass = Console.ReadLine();
 
-            //char[] charPass = pass.ToCharArray();
-
-            /*bool containsAtLeastOneUppercase = pass.Any(char.IsUpper);
-            bool containsAtLeastOneLowercase = pass.Any(char.IsLower);
-            bool containsAtLeastOneSpecialChar = pass.Any(ch => !char.IsLetterOrDigit(ch));
-            bool containsAtLeastOneDigit = pass.Any(char.IsDigit);*/
             bool containsSpaces = pass.Contains(" ");
             Console.WriteLine();
             int score = 0;
